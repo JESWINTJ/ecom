@@ -27,7 +27,7 @@ function EditProductPage() {
         let response;
         try {
             console.log('Fetching product with ID:', id);
-          response = await axios.get(`http://localhost:5000/api/products/${id}`, {
+          response = await axios.get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/products/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
