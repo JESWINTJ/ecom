@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/layout/Header.jsx';
 import Footer from '../components/layout/Footer.jsx';
+import axiosInstance from '../api/axiosConfig.js';
 
 function LoginPage() {
   const [emailId, setEmailId] = useState('');
@@ -16,7 +17,7 @@ function LoginPage() {
     setMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

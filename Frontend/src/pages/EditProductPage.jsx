@@ -35,7 +35,7 @@ function EditProductPage() {
         } catch (fetchError) {
           // If specific endpoint fails, try fetching all products and find the matching one
           console.log('Specific product fetch failed, trying all products...');
-          const allProductsResponse = await axios.get('http://localhost:5000/api/sellers/products', {
+          const allProductsResponse = await axios.get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/products`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

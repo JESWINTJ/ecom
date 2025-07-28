@@ -12,7 +12,7 @@ const AdminDashboardPage = () => {
 
   const fetchAdminProfile = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/admin/profile');
+      const { data } = await axios.get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/admin/profile`);
        withCredentials: true
       setAdmin(data);
     } catch (err) {

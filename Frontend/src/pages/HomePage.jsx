@@ -11,7 +11,7 @@ function HomePage() {
   useEffect(() => {
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/products`);
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       console.log("Fetched products:", data); // ✅ Add this

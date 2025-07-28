@@ -80,7 +80,7 @@ function ReviewPage() {
 
       // CORRECTED: Send POST request to /api/reviews (without productId in URL)
       // and include productId in the request body.
-      const response = await fetch('http://localhost:5000/api/reviews', {
+      const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/reviews`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

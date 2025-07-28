@@ -45,7 +45,7 @@ function AddProductPage() {
       setLoading(true);
       setMessage('');
       
-      const response = await axios.post('http://localhost:5000/api/sellers/products', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/products`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,

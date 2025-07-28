@@ -10,7 +10,7 @@ const ManageSellersPage = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const { data } = await axios.get('http://localhost:5000/api/admin/sellers', {
+      const { data } = await axios.get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/admin/sellers`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

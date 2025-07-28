@@ -18,7 +18,7 @@ const ViewOrderPage = () => {
         return;
       }
 
-      const { data } = await axios.get('http://localhost:5000/api/admin/orders', {
+      const { data } = await axios.get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/admin/orders`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

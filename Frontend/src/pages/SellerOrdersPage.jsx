@@ -7,7 +7,7 @@ function SellerOrdersPage() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/orders/seller', {
+      .get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/orders/seller`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

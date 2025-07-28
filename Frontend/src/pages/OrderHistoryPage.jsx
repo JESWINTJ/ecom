@@ -9,7 +9,7 @@ function OrderHistoryPage() {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem('token'); // must be correct
-      const response = await fetch('http://localhost:5000/api/orders/my', {
+      const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/orders/my`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,

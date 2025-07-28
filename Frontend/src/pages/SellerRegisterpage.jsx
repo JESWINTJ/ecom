@@ -54,7 +54,7 @@ function SellerRegisterPage() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/sellers/register', {
+      const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
