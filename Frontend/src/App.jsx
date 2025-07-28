@@ -14,7 +14,7 @@ import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import ReviewPage from './pages/ReviewPage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 import SellerDashboardPage from './pages/SellerDashboardPage';
-import SellerRegisterPage from './pages/SellerRegisterPage'; // Import the seller registration page
+import SellerRegisterPage from './pages/SellerRegisterPage.jsx'; // Import the seller registration page
 import AddProductPage from './pages/AddProductPage';
 import SellerOrdersPage from './pages/SellerOrdersPage';
 import EditProductPage from './pages/EditProductPage';
