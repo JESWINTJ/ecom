@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 import axiosInstance from '../api/axiosConfig.js';
 
 function LoginPage() {
@@ -78,14 +78,19 @@ function LoginPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
 
       <main className="flex-grow container mx-auto p-4 flex items-center justify-center relative">
         {/* Background elements */}
         <div className="absolute inset-0 z-0 opacity-50">
-          <section className="bg-blue-100 rounded-xl p-8 mb-8 text-center text-blue-800 text-xl font-medium shadow-inner">
-            banners ads
-          </section>
+          <section className="mb-8">
+  <img
+    src="/Frontend/public/bannerads.webp"
+    alt="Promotional Banner"
+    className="w-full h-48 object-cover rounded-xl shadow-lg"
+  />
+</section>
+
           <section className="mb-8">
             <h3 className="text-2xl font-medium text-gray-800 mb-4">Best of electronics</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -188,7 +193,7 @@ function LoginPage() {
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

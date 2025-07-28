@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 
 function SellerDashboardPage() {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ function SellerDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
 
       <main className="flex-grow container mx-auto p-4">
         <h2 className="text-3xl font-light text-gray-800 mb-6 text-center">Seller Dashboard</h2>
@@ -81,12 +81,18 @@ function SellerDashboardPage() {
             <h3 className="text-xl font-semibold text-gray-800">View Orders</h3>
             <p className="text-gray-600 text-sm mt-2">Track and fulfill customer orders.</p>
           </Link>
+          <Link to="/sellerprofile" className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center justify-center text-center">
+  <div className="text-5xl text-purple-600 mb-4">📝</div>
+  <h3 className="text-xl font-semibold text-gray-800">Edit Profile</h3>
+  <p className="text-gray-600 text-sm mt-2">Update your details</p>
+</Link>
+
 
           {/* Add more seller-specific links here */}
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

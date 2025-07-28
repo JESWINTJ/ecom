@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 import ProductCard from '../components/products/ProductCard.jsx'; // Assuming you have a ProductCard component
 
 function CategoryPage() {
@@ -38,7 +38,7 @@ function CategoryPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
       <main className="flex-grow container mx-auto p-4">
         <h2 className="text-3xl font-light text-gray-800 mb-6 text-center capitalize">
           {categoryName ? `Products in ${categoryName}` : 'All Categories'}
@@ -62,7 +62,7 @@ function CategoryPage() {
           </div>
         )}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

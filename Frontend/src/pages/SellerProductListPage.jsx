@@ -48,7 +48,7 @@ function SellerProductListPage() {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     
     try {
-      await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+      await axios.delete(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/products/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -83,7 +83,7 @@ function SellerProductListPage() {
   const handleEditSubmit = async (productId) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/products/${productId}`,
+        `${import.meta.env.VITE_PUBLIC_BASE_URL}/api/products/${productId}`,
         editFormData,
         {
           headers: {

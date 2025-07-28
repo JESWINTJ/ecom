@@ -28,7 +28,7 @@ const ManageSellersPage = () => {
     if (!window.confirm('Are you sure you want to remove this seller?')) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/admin/users/${sellerId}`, {
+      await axios.delete(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/admin/users/${sellerId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

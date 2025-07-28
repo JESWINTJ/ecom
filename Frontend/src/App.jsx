@@ -23,7 +23,9 @@ import AdminDashboardPage from './pages/AdminDashboardPage.jsx';
 import ManageSellersPage from './pages/ManageSellersPage.jsx';
 import ManageUsersPage from './pages/ManageUsersPage.jsx';
 import ViewOrderPage from './pages/ViewOrderPage.jsx'; // Import the view order page
-
+import AdminProfilePage from './pages/AdminProfilePage';
+import SellerProfilePage from './pages/SellerProfilePage.jsx'; // Import the seller profile page
+import UserProfilePage from './pages/UserProfilePage.jsx'; // Import the user profile page
 function App() {
   return (
     <Router>
@@ -54,6 +56,10 @@ function App() {
             <Route path="/manageusers" element={<ManageUsersPage />} />
             <Route path="/adminorder" element={<ViewOrderPage />} /> {/* Route for viewing order details */}
             {/* Removed duplicate seller registration route */}
+            <Route path="/adminprofile" element={<AdminProfilePage />} />
+            <Route path="/sellerprofile" element={<SellerProfilePage />} /> {/* Route for seller profile page */}
+            {/* Add other routes as needed */}
+            <Route path="/userprofile" element={<UserProfilePage />} /> {/* Route for user profile page */}
             {/* Add other routes here */}
           </Routes>
         </main>

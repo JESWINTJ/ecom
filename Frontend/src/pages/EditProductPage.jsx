@@ -93,7 +93,7 @@ function EditProductPage() {
       setMessage('');
       
       const response = await axios.put(
-        `http://localhost:5000/api/sellers/products/${id}`,
+        `${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/products/${id}`,
         formData,
         {
           headers: {
@@ -154,7 +154,7 @@ function EditProductPage() {
         <div className="mb-4">
           <p className="text-sm mb-1">Current Image:</p>
           <img 
-            src={`http://localhost:5000/${currentImage}`} 
+            src={`${import.meta.env.VITE_PUBLIC_BASE_URL}/${currentImage}`} 
             alt="Current product" 
             className="h-32 object-cover rounded"
           />

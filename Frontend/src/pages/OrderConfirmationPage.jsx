@@ -1,8 +1,8 @@
 // OrderConfirmationPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 
 function OrderConfirmationPage() {
   const navigate = useNavigate();
@@ -85,7 +85,7 @@ function OrderConfirmationPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-between">
-      <Header />
+      {/* <Header /> */}
 
       <main className="flex-grow flex items-center justify-center">
         <div className="text-center p-8">
@@ -114,8 +114,8 @@ function OrderConfirmationPage() {
           )}
         </div>
       </main>
-
-      <Footer />
+{/* 
+      <Footer /> */}
     </div>
   );
 }

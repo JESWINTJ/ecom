@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+import { useNavigate, useLocation } from 'react-router-dom';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 
 function CheckoutPage() {
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const location = useLocation(); // Initialize useLocation hook
+  const location = useLocation();
 
-  // Access data passed from CartPage via location.state
-  // Provide default empty object to prevent errors if state is null
   const { cartData, discountAmount, couponsAmount, platformFeeAmount, totalAmount, savedAmount } = location.state || {};
 
-  // If cartData is not available, redirect or show an error
   if (!cartData) {
-    // This handles direct navigation to /checkout or if state is lost
     return (
       <div className="min-h-screen flex items-center justify-center text-xl text-red-600">
         Cart data not found. Please go back to your cart.
@@ -24,36 +20,32 @@ function CheckoutPage() {
     );
   }
 
-  // Price details are now directly from passed state
-  const itemPrice = cartData.price * cartData.quantity;
-
+  const itemPrice = parseFloat(cartData.amount) * cartData.quantity;
 
   const handleProceedToPayment = () => {
     if (!deliveryAddress.trim()) {
       setMessage('Please enter a delivery address.');
       return;
     }
+
+    localStorage.removeItem('cartItem');
+    localStorage.removeItem('cartQuantity');
+
     console.log('Delivery Address:', deliveryAddress);
-    console.log('Proceeding to payment options...');
-    setMessage('Proceeding to payment options (functionality not implemented)');
-    // Pass relevant data to the payment page as well
     navigate('/payment', {
       state: {
         deliveryAddress,
         cartData,
-        totalAmount,
-        // Pass other price breakdown details if needed on payment page
+        totalAmount
       }
     });
   };
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
 
-      {/* Main Content Area - Checkout Details */}
       <main className="flex-grow container mx-auto p-4 flex flex-col md:flex-row items-start md:items-stretch gap-8">
-        {/* Delivery Address and Payment Options */}
         <div className="flex flex-col md:w-2/3 p-4 bg-white rounded-xl shadow-lg">
           <div className="bg-yellow-100 p-4 rounded-lg mb-6 text-gray-800 font-semibold text-lg">
             Enter delivery address
@@ -63,7 +55,6 @@ function CheckoutPage() {
             placeholder="Enter your full delivery address here..."
             value={deliveryAddress}
             onChange={(e) => setDeliveryAddress(e.target.value)}
-            rows="4"
           ></textarea>
 
           {message && (
@@ -77,13 +68,12 @@ function CheckoutPage() {
             className="w-full bg-yellow-400 text-gray-800 font-semibold py-3 px-6 rounded-lg text-lg flex items-center justify-center hover:bg-yellow-500 transition duration-300 shadow-md"
           >
             Payment options
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </button>
         </div>
 
-        {/* Price Details (now dynamic) */}
         <div className="md:w-1/3 p-4 bg-white rounded-xl shadow-lg">
           <h2 className="text-xl font-medium text-gray-800 mb-4 border-b pb-3">PRICE DETAILS</h2>
           <div className="space-y-2 text-gray-700">
@@ -114,7 +104,7 @@ function CheckoutPage() {
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

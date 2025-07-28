@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 import { FiStar } from 'react-icons/fi'; // Import FiStar for rating display
 
 function ProductDetailPage() {
@@ -14,7 +14,7 @@ function ProductDetailPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+        const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/products/${productId}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -81,7 +81,7 @@ function ProductDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
 
       {/* Main Content Area - Product Details */}
       <main className="flex-grow container mx-auto p-4 flex flex-col md:flex-row items-start md:items-stretch gap-8">
@@ -156,8 +156,8 @@ function ProductDetailPage() {
           )}
         </div>
       </main>
-
-      <Footer />
+{/* 
+      <Footer /> */}
     </div>
   );
 }

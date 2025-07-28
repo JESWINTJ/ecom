@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 
 function SellerRegisterPage() {
   const [username, setUsername] = useState('');
@@ -76,7 +76,7 @@ function SellerRegisterPage() {
         throw new Error(data.message || 'Registration failed');
       }
 
-      setMessage('Seller registration successful! Redirecting to dashboard...');
+      setMessage('Seller registration successful!');
       
       // Store token and user data if registration also logs in
       if (data.token) {
@@ -99,7 +99,7 @@ function SellerRegisterPage() {
       });
       
       // Redirect to dashboard after 2 seconds
-      setTimeout(() => navigate('/seller-dashboard'), 2000);
+      setTimeout(() => navigate('/login'), 2000);
     } catch (error) {
       console.error('Registration error:', error);
       setMessage(`Error: ${error.message}`);
@@ -110,7 +110,7 @@ function SellerRegisterPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
 
       <main className="flex-grow container mx-auto p-4 flex items-center justify-center relative">
         <div className="relative bg-white p-8 rounded-xl shadow-lg w-full max-w-md z-10">
@@ -280,8 +280,8 @@ function SellerRegisterPage() {
           </form>
         </div>
       </main>
-
-      <Footer />
+{/* 
+      <Footer /> */}
     </div>
   );
 }

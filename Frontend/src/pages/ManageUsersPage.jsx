@@ -28,7 +28,7 @@ const ManageUsersPage = () => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/admin/users/${userId}`, {
+        await axios.delete(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/admin/users/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,8 +46,8 @@ const ManageUsersPage = () => {
   }, []);
 
   return (
-    <div className="container" style={{ padding: '20px' }}>
-      <h2>Manage Users</h2>
+    <div className="container" style={{ padding: '30px' }}>
+      <h2 style={{ fontSize: '28px', marginBottom: '20px' }}>Manage Users</h2>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
@@ -58,30 +58,37 @@ const ManageUsersPage = () => {
         <table
           style={{
             width: '100%',
-            borderCollapse: 'collapse',
-            marginTop: '20px',
+            borderCollapse: 'separate',
+            borderSpacing: '0 10px',
+            fontSize: '18px',
           }}
         >
           <thead>
             <tr style={{ backgroundColor: '#f0f0f0' }}>
-              <th style={cellStyle}>Name</th>
-              <th style={cellStyle}>Email</th>
-              <th style={cellStyle}>Phone</th>
-              <th style={cellStyle}>Roles</th>
-              <th style={cellStyle}>Actions</th>
+              <th style={headerCellStyle}>Name</th>
+              <th style={headerCellStyle}>Email</th>
+              <th style={headerCellStyle}>Phone</th>
+              <th style={headerCellStyle}>Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user._id}>
+              <tr key={user._id} style={{ backgroundColor: '#fff' }}>
                 <td style={cellStyle}>{user.name}</td>
                 <td style={cellStyle}>{user.email}</td>
                 <td style={cellStyle}>{user.phone}</td>
-                <td style={cellStyle}>{user.roles?.join(', ')}</td>
                 <td style={cellStyle}>
                   <button
                     onClick={() => handleDelete(user._id)}
-                    style={{ backgroundColor: '#e74c3c', color: 'white', border: 'none', padding: '6px 10px', cursor: 'pointer' }}
+                    style={{
+                      backgroundColor: '#e74c3c',
+                      color: 'white',
+                      border: 'none',
+                      padding: '8px 16px',
+                      borderRadius: '4px',
+                      fontSize: '16px',
+                      cursor: 'pointer',
+                    }}
                   >
                     Delete
                   </button>
@@ -97,8 +104,15 @@ const ManageUsersPage = () => {
 
 const cellStyle = {
   border: '1px solid #ccc',
-  padding: '10px',
+  padding: '14px 20px',
   textAlign: 'left',
+  verticalAlign: 'middle',
+};
+
+const headerCellStyle = {
+  ...cellStyle,
+  fontWeight: 'bold',
+  backgroundColor: '#f9f9f9',
 };
 
 export default ManageUsersPage;

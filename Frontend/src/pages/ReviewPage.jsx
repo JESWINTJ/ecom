@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import Header from '../components/layout/Header.jsx';
-import Footer from '../components/layout/Footer.jsx';
+// import Header from '../components/layout/Header.jsx';
+// import Footer from '../components/layout/Footer.jsx';
 import { FiStar } from 'react-icons/fi'; // Import FiStar for rating display
 
 function ReviewPage() {
@@ -21,7 +21,7 @@ function ReviewPage() {
   useEffect(() => {
     const fetchProductDetails = async (id) => {
       try {
-        const response = await fetch(`http://localhost:5000/api/products/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/products/${id}`);
         if (!response.ok) {
           // If response is not OK, it might be HTML, so don't try to parse as JSON
           const errorText = await response.text(); // Read as text to see content
@@ -142,7 +142,7 @@ function ReviewPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans flex flex-col">
-      <Header />
+      {/* <Header /> */}
 
       <main className="flex-grow container mx-auto p-4 flex flex-col md:flex-row items-center md:items-start gap-8">
         <div className="flex flex-col items-center md:w-1/3 p-4 bg-white rounded-xl shadow-lg">
@@ -199,7 +199,7 @@ function ReviewPage() {
         </div>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
