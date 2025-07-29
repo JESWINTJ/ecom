@@ -17,21 +17,30 @@ const SellerProfilePage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const { data } = await axios.get(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/profile`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/profile`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      console.log('Fetched seller profile:', data); // Debug log
+
+      const address = data.address || {}; // fallback to empty object if undefined
+
       setSeller(data);
       setFormData({
-        name: data.name,
-        phone: data.phone,
-        gstNumber: data.gstNumber,
+        name: data.name || '',
+        phone: data.phone || '',
+        gstNumber: data.gstNumber || '',
         address: {
-          street: data.address.street || '',
-          city: data.address.city || '',
-          pincode: data.address.pincode || '',
+          street: address.street || '',
+          city: address.city || '',
+          pincode: address.pincode || '',
         },
       });
     } catch (err) {
+      console.error('Fetch error:', err);
       setMessage('Failed to fetch profile');
     }
     setLoading(false);
@@ -54,13 +63,18 @@ const SellerProfilePage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/profile`, formData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.put(
+        `${import.meta.env.VITE_PUBLIC_BASE_URL}/api/sellers/profile`,
+        formData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setMessage('Profile updated successfully');
       setEditing(false);
       fetchProfile();
     } catch (err) {
+      console.error('Update error:', err);
       setMessage('Failed to update profile');
     }
     setLoading(false);
@@ -142,11 +156,23 @@ const SellerProfilePage = () => {
             <div style={styles.buttonGroup}>
               {editing ? (
                 <>
-                  <button onClick={handleSave} style={styles.saveBtn}>Save</button>
-                  <button onClick={() => setEditing(false)} style={styles.cancelBtn}>Cancel</button>
+                  <button onClick={handleSave} style={styles.saveBtn}>
+                    Save
+                  </button>
+                  <button
+                    onClick={() => setEditing(false)}
+                    style={styles.cancelBtn}
+                  >
+                    Cancel
+                  </button>
                 </>
               ) : (
-                <button onClick={() => setEditing(true)} style={styles.editBtn}>Edit Profile</button>
+                <button
+                  onClick={() => setEditing(true)}
+                  style={styles.editBtn}
+                >
+                  Edit Profile
+                </button>
               )}
             </div>
           </>
