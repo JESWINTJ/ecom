@@ -20,7 +20,7 @@ function SellerProfilePage() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axiosInstance.get('/api/seller/profile');
+        const response = await axiosInstance.get('${import.meta.env.VITE_PUBLIC_BASE_URL}/api/seller/profile');
         const data = response.data;
 
         const address = data.address || {}; // fallback in case address is undefined
@@ -65,7 +65,7 @@ function SellerProfilePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.put('/api/seller/profile', formData);
+      const response = await axiosInstance.put('${import.meta.env.VITE_PUBLIC_BASE_URL}/api/seller/profile', formData);
       setMessage('Profile updated successfully');
     } catch (err) {
       console.error('Error updating profile:', err);
