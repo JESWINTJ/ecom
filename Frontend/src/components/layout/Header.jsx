@@ -40,6 +40,11 @@ function Header() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m7-7V3" />
           </svg>
         </Link>
+         <Link to="/" className="text-gray-700 hover:text-blue-600 rounded-full p-2">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9.75L12 3l9 6.75V21a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 21V9.75z" />
+          </svg>
+        </Link>
 
         {localStorage.getItem('token') && (
           <button onClick={handleLogout} className="flex items-center text-gray-700 hover:text-blue-600 rounded-full p-2">
