@@ -42,7 +42,7 @@ function Header() {
         </Link>
          <Link to="/" className="text-gray-700 hover:text-blue-600 rounded-full p-2">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A9 9 0 0112 15a9 9 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9.75L12 3l9 6.75M4.5 10.5V21a1.5 1.5 0 001.5 1.5h12A1.5 1.5 0 0021 21V10.5M9 22.5V15h6v7.5" />
           </svg>
         </Link>
 
